@@ -1,22 +1,24 @@
-package service;
+package studentmanagement.service;
 
 import java.util.List;
 
-import org.springframework.context.annotation.AnnotationConfigApplicationContext;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 
-import data_access.StudentDao;
-import models.Student;
-import util.UserInputService;
+import studentmanagement.data_access.StudentDao;
+import studentmanagement.models.Student;
+import studentmanagement.util.UserInputService;
 
+@Component
 public class StudentManagementConsoleImpl implements StudentManagement {
 
 	private UserInputService scannerService;
 	private StudentDao studentDaoList;
 
-	public StudentManagementConsoleImpl() {
-		AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext(ComponentScanConfig.class);
-		this.scannerService = context.getBean(UserInputService.class);
-		this.studentDaoList = context.getBean(StudentDao.class);
+	@Autowired
+	public StudentManagementConsoleImpl(UserInputService theScannerService, StudentDao theStudentDao) {
+		this.scannerService = theScannerService;
+		this.studentDaoList = theStudentDao;
 	}
 
 	@Override

@@ -1,4 +1,4 @@
-package util;
+package studentmanagement.util;
 
 import java.util.Scanner;
 

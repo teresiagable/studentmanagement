@@ -1,11 +1,11 @@
-package data_access;
+package studentmanagement.data_access;
 
 import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.stereotype.Component;
 
-import models.Student;
+import studentmanagement.models.Student;
 
 @Component
 public class StudentDaoListImp implements StudentDao {

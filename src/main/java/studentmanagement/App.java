@@ -1,6 +1,9 @@
 package studentmanagement;
 
-import service.StudentManagementConsoleImpl;
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
+
+import studentmanagement.config.ComponentScanConfig;
+import studentmanagement.service.StudentManagement;
 
 /**
  * Hello world!
@@ -10,9 +13,12 @@ public class App
 {
     public static void main( String[] args )
     {
+    	
+        AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext(ComponentScanConfig.class);
         System.out.println( "Welcome Spring!" );
-        
-        StudentManagementConsoleImpl studentManagement = new StudentManagementConsoleImpl();
+
+
+    	StudentManagement studentManagement = context.getBean(StudentManagement.class);
         
         System.out.println("Name a new student:");
         studentManagement.save(studentManagement.create());
@@ -24,14 +30,6 @@ public class App
         
         System.out.println("And here is all students:");
         studentManagement.findAll().forEach(s-> System.out.println(s));
-
-        
-//      AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext(ComponentScanConfig.class);
-//      StudentDao studentDao = context.getBean(StudentDao.class);
-//      
-//      AnnotationConfigApplicationContext context2 = new AnnotationConfigApplicationContext(ComponentScanConfig.class); 
-//      UserInputService userInputService = context2.getBean(UserInputService.class); 
-
 
         		
     }

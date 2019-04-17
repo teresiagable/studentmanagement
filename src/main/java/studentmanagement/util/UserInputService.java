@@ -1,4 +1,4 @@
-package util;
+package studentmanagement.util;
 
 public interface UserInputService {
 	String getString();

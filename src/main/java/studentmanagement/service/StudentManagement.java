@@ -1,8 +1,8 @@
-package service;
+package studentmanagement.service;
 
 import java.util.List;
 
-import models.Student;
+import studentmanagement.models.Student;
 
 public interface StudentManagement {
 	Student create();
